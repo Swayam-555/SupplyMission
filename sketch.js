@@ -80,14 +80,27 @@ function draw() {
   
 
 
-      if(keyDown(LEFT_ARROW)){
-  helicopterSprite.x = helicopterSprite.x-3;
-}
+//       if(keyDown(LEFT_ARROW)){
+//   helicopterSprite.x = helicopterSprite.x-3;
+// }
 
-if(keyDown(RIGHT_ARROW)){
-	helicopterSprite.x = helicopterSprite.x+3;
-  }
-keyPressed();
+// if(keyDown(RIGHT_ARROW)){
+// 	helicopterSprite.x = helicopterSprite.x+3;
+//   }
+
+if (keyCode === LEFT_ARROW) { 
+	helicopterSprite.x = helicopterSprite.x-3; 
+	translation={x:-3,y:0};
+	 Matter.Body.translate(packageBody, translation) 
+}
+ else{
+  if (keyCode === RIGHT_ARROW) {
+	   helicopterSprite.x = helicopterSprite.x+3; 
+	   translation={x:3,y:0};
+	    Matter.Body.translate(packageBody, translation) 
+	}
+ }
+  keyPressed();
   
 
   drawSprites();
